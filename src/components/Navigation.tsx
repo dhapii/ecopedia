@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Leaf } from "lucide-react";
+import { Menu, X, Leaf, User } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const navItems = [
   { name: "Education", href: "#education" },
   { name: "Campaign", href: "#campaign" },
   { name: "Waste Management", href: "#waste" },
   { name: "Green Space", href: "#greenspace" },
-  { name: "EcoTravel", href: "#travel" },
   { name: "Gallery", href: "#gallery" },
   { name: "Products", href: "#products" },
 ];
@@ -15,6 +15,7 @@ const navItems = [
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -63,6 +64,14 @@ const Navigation = () => {
                 {item.name}
               </Button>
             ))}
+            <Button
+              variant="default"
+              onClick={() => navigate("/auth")}
+              className="ml-4"
+            >
+              <User className="w-4 h-4 mr-2" />
+              Account
+            </Button>
           </div>
 
           {/* Mobile menu button */}
@@ -92,6 +101,16 @@ const Navigation = () => {
                 {item.name}
               </button>
             ))}
+            <button
+              onClick={() => {
+                navigate("/auth");
+                setIsOpen(false);
+              }}
+              className="block w-full text-left px-4 py-3 text-foreground hover:bg-muted rounded-lg transition-colors font-medium"
+            >
+              <User className="w-4 h-4 inline mr-2" />
+              Account
+            </button>
           </div>
         </div>
       )}

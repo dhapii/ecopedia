@@ -303,57 +303,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* EcoTravel Section */}
-      <section id="travel" className="py-20 lg:py-32 bg-muted/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            icon={Palmtree}
-            title="EcoTravel"
-            subtitle="Wisata Ramah Lingkungan"
-            centered
-          />
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            <FeatureCard
-              icon={MapPin}
-              title="Destinasi Eco-Friendly"
-              description="Jelajahi tempat wisata yang menerapkan praktik ramah lingkungan"
-              image={travelImage}
-              items={[
-                "Rating eco-score",
-                "Fasilitas hijau",
-                "Sertifikasi lingkungan",
-              ]}
-              gradient="primary"
-            />
-            <FeatureCard
-              icon={Heart}
-              title="Tips Perjalanan Hijau"
-              description="Panduan traveling yang meminimalkan jejak karbon"
-              items={[
-                "Transportasi ramah lingkungan",
-                "Akomodasi eco-certified",
-                "Kegiatan berkelanjutan",
-                "Etika wisata alam",
-              ]}
-              gradient="secondary"
-            />
-            <FeatureCard
-              icon={Camera}
-              title="Maps & Review"
-              description="Peta interaktif dengan review dari traveler eco-conscious"
-              items={[
-                "Lokasi GPS akurat",
-                "Review terpercaya",
-                "Foto destinasi",
-                "Tips dari traveler",
-              ]}
-              gradient="earth"
-            />
-          </div>
-        </div>
-      </section>
-
       {/* EcoGallery Section */}
       <section id="gallery" className="py-20 lg:py-32">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
