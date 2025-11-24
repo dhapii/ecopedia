@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import FeatureCard from "@/components/FeatureCard";
 import SectionHeader from "@/components/SectionHeader";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import CountUp from "react-countup";
 import {
@@ -135,8 +136,9 @@ const Index = () => {
               size="lg"
               variant="secondary"
               className="bg-background text-primary hover:bg-background/90 shadow-medium"
+              asChild
             >
-              Daftar Volunteer
+              <Link to="/volunteer">Daftar Volunteer</Link>
             </Button>
           </div>
         </div>
@@ -399,8 +401,9 @@ const Index = () => {
               <Button
                 size="lg"
                 className="bg-gradient-primary hover:opacity-90 text-primary-foreground shadow-medium"
+                asChild
               >
-                Daftar Sebagai Seller
+                <Link to="/seller-registration">Daftar Sebagai Seller</Link>
               </Button>
             </div>
           </div>
@@ -428,24 +431,24 @@ const Index = () => {
               <h4 className="font-semibold mb-4">Portal</h4>
               <ul className="space-y-2 text-sm text-background/70">
                 <li>
-                  <a href="#education" className="hover:text-background">
+                  <Link to="/education" className="hover:text-background">
                     Eco Education
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#campaign" className="hover:text-background">
+                  <Link to="/campaigns" className="hover:text-background">
                     Green Campaign
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#waste" className="hover:text-background">
+                  <Link to="/waste-management" className="hover:text-background">
                     Waste Management
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#greenspace" className="hover:text-background">
+                  <Link to="/green-space" className="hover:text-background">
                     Green Space
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -454,19 +457,14 @@ const Index = () => {
               <h4 className="font-semibold mb-4">Layanan</h4>
               <ul className="space-y-2 text-sm text-background/70">
                 <li>
-                  <a href="#travel" className="hover:text-background">
-                    EcoTravel
-                  </a>
-                </li>
-                <li>
-                  <a href="#gallery" className="hover:text-background">
+                  <Link to="/gallery" className="hover:text-background">
                     EcoGallery
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#products" className="hover:text-background">
+                  <Link to="/products" className="hover:text-background">
                     EcoProducts
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
