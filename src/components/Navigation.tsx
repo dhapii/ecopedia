@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Leaf, User } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const navItems = [
-  { name: "Education", href: "#education" },
-  { name: "Campaign", href: "#campaign" },
-  { name: "Waste Management", href: "#waste" },
-  { name: "Green Space", href: "#greenspace" },
-  { name: "Gallery", href: "#gallery" },
-  { name: "Products", href: "#products" },
+  { name: "Education", href: "/education" },
+  { name: "Campaign", href: "/campaigns" },
+  { name: "Waste Management", href: "/waste-management" },
+  { name: "Green Space", href: "/green-space" },
+  { name: "Gallery", href: "/gallery" },
+  { name: "Products", href: "/products" },
 ];
 
 const Navigation = () => {
@@ -25,12 +25,8 @@ const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setIsOpen(false);
-    }
+  const handleNavClick = () => {
+    setIsOpen(false);
   };
 
   return (
@@ -58,10 +54,10 @@ const Navigation = () => {
               <Button
                 key={item.name}
                 variant="ghost"
-                onClick={() => scrollToSection(item.href)}
+                asChild
                 className="text-foreground transition-colors"
               >
-                {item.name}
+                <Link to={item.href}>{item.name}</Link>
               </Button>
             ))}
             <Button
@@ -93,13 +89,14 @@ const Navigation = () => {
         <div className="lg:hidden bg-background/98 backdrop-blur-md border-t border-border animate-fade-in">
           <div className="container mx-auto px-4 py-4 space-y-2">
             {navItems.map((item) => (
-              <button
+              <Link
                 key={item.name}
-                onClick={() => scrollToSection(item.href)}
+                to={item.href}
+                onClick={handleNavClick}
                 className="block w-full text-left px-4 py-3 text-foreground hover:bg-muted rounded-lg transition-colors"
               >
                 {item.name}
-              </button>
+              </Link>
             ))}
             <button
               onClick={() => {
