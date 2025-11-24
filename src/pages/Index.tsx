@@ -3,9 +3,10 @@ import Hero from "@/components/Hero";
 import FeatureCard from "@/components/FeatureCard";
 import SectionHeader from "@/components/SectionHeader";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import CountUp from "react-countup";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import {
   GraduationCap,
   Megaphone,
@@ -84,6 +85,15 @@ const Index = () => {
               gradient="earth"
             />
           </div>
+
+          <div className="mt-12 text-center">
+            <Button asChild size="lg" className="group">
+              <Link to="/education">
+                Lihat Semua Materi
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Button>
+          </div>
         </div>
       </section>
 
@@ -125,7 +135,16 @@ const Index = () => {
             />
           </div>
 
-          <div className="bg-gradient-primary rounded-2xl p-8 lg:p-12 text-center text-primary-foreground">
+          <div className="mt-12 text-center">
+            <Button asChild size="lg" variant="outline" className="group">
+              <Link to="/campaigns">
+                Jelajahi Semua Campaign
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Button>
+          </div>
+
+          <div className="mt-12 bg-gradient-primary rounded-2xl p-8 lg:p-12 text-center text-primary-foreground">
             <h3 className="text-2xl lg:text-3xl font-bold mb-4">
               Siap Bergabung dengan Gerakan Hijau?
             </h3>
@@ -193,6 +212,15 @@ const Index = () => {
               gradient="earth"
             />
           </div>
+
+          <div className="mt-12 text-center">
+            <Button asChild size="lg" className="group">
+              <Link to="/waste-management">
+                Kelola Sampah Sekarang
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Button>
+          </div>
         </div>
       </section>
 
@@ -231,6 +259,15 @@ const Index = () => {
               ]}
               gradient="secondary"
             />
+          </div>
+
+          <div className="mt-12 text-center">
+            <Button asChild size="lg" variant="outline" className="group">
+              <Link to="/green-space">
+                Lihat Program Penghijauan
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Button>
           </div>
 
           <div className="mt-16 mb-14 grid grid-cols-2 md:grid-cols-4 gap-6 text-center backdrop-blur-sm bg-blue-50 p-6 rounded-lg shadow-md">
@@ -330,11 +367,15 @@ const Index = () => {
 
           <div className="text-center mt-12">
             <Button
+              asChild
               size="lg"
               variant="outline"
-              className="border-2 border-primary text-primary hover:bg-primary/10"
+              className="border-2 border-primary text-primary hover:bg-primary/10 group"
             >
-              Lihat Semua Dokumentasi
+              <Link to="/gallery">
+                Lihat Semua Dokumentasi
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
             </Button>
           </div>
         </div>
@@ -389,6 +430,15 @@ const Index = () => {
             />
           </div>
 
+          <div className="mt-12 text-center">
+            <Button asChild size="lg" variant="outline" className="group">
+              <Link to="/products">
+                Jelajahi Semua Produk
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Button>
+          </div>
+
           <div className="mt-12 bg-card rounded-2xl p-8 lg:p-12 border border-border">
             <div className="text-center max-w-2xl mx-auto">
               <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-4">
@@ -431,24 +481,24 @@ const Index = () => {
               <h4 className="font-semibold mb-4">Portal</h4>
               <ul className="space-y-2 text-sm text-background/70">
                 <li>
-                  <Link to="/education" className="hover:text-background">
+                  <a href="#education" className="hover:text-background">
                     Eco Education
-                  </Link>
+                  </a>
                 </li>
                 <li>
-                  <Link to="/campaigns" className="hover:text-background">
+                  <a href="#campaign" className="hover:text-background">
                     Green Campaign
-                  </Link>
+                  </a>
                 </li>
                 <li>
-                  <Link to="/waste-management" className="hover:text-background">
+                  <a href="#waste" className="hover:text-background">
                     Waste Management
-                  </Link>
+                  </a>
                 </li>
                 <li>
-                  <Link to="/green-space" className="hover:text-background">
+                  <a href="#greenspace" className="hover:text-background">
                     Green Space
-                  </Link>
+                  </a>
                 </li>
               </ul>
             </div>
@@ -457,14 +507,14 @@ const Index = () => {
               <h4 className="font-semibold mb-4">Layanan</h4>
               <ul className="space-y-2 text-sm text-background/70">
                 <li>
-                  <Link to="/gallery" className="hover:text-background">
+                  <a href="#gallery" className="hover:text-background">
                     EcoGallery
-                  </Link>
+                  </a>
                 </li>
                 <li>
-                  <Link to="/products" className="hover:text-background">
+                  <a href="#products" className="hover:text-background">
                     EcoProducts
-                  </Link>
+                  </a>
                 </li>
               </ul>
             </div>
