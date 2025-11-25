@@ -1,48 +1,27 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/lib/auth";
 import { Button } from "@/components/ui/button";
-import { LogOut, Package, Megaphone, GraduationCap, Images } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
+import { LogOut, Megaphone, GraduationCap, Images, MessageSquare } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function UserDashboard() {
   const { user, role, loading, signOut } = useAuth();
   const navigate = useNavigate();
-  const [stats, setStats] = useState({
-    products: 0,
-    campaigns: 0,
-    education: 0,
-    gallery: 0,
-  });
+
+  // Dummy stats
+  const stats = {
+    forum: 156,
+    campaigns: 12,
+    education: 45,
+    gallery: 89,
+  };
 
   useEffect(() => {
     if (!loading && (!user || role !== "user")) {
       navigate("/auth");
     }
   }, [user, role, loading, navigate]);
-
-  useEffect(() => {
-    if (user && role === "user") {
-      fetchStats();
-    }
-  }, [user, role]);
-
-  const fetchStats = async () => {
-    const [products, campaigns, education, gallery] = await Promise.all([
-      supabase.from("products").select("*", { count: "exact", head: true }),
-      supabase.from("campaigns").select("*", { count: "exact", head: true }),
-      supabase.from("education").select("*", { count: "exact", head: true }),
-      supabase.from("gallery").select("*", { count: "exact", head: true }),
-    ]);
-
-    setStats({
-      products: products.count || 0,
-      campaigns: campaigns.count || 0,
-      education: education.count || 0,
-      gallery: gallery.count || 0,
-    });
-  };
 
   const handleSignOut = async () => {
     await signOut();
@@ -87,12 +66,12 @@ export default function UserDashboard() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Produk</CardTitle>
-              <Package className="h-4 w-4 text-muted-foreground" />
+              <CardTitle className="text-sm font-medium">Forum</CardTitle>
+              <MessageSquare className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{stats.products}</div>
-              <p className="text-xs text-muted-foreground">Produk ramah lingkungan</p>
+              <div className="text-2xl font-bold">{stats.forum}</div>
+              <p className="text-xs text-muted-foreground">Pesan forum</p>
             </CardContent>
           </Card>
 

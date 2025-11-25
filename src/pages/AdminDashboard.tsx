@@ -3,11 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/lib/auth";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { LogOut, Package, Megaphone, GraduationCap, Images } from "lucide-react";
-import ProductsManager from "@/components/admin/ProductsManager";
-import CampaignsManager from "@/components/admin/CampaignsManager";
-import EducationManager from "@/components/admin/EducationManager";
-import GalleryManager from "@/components/admin/GalleryManager";
+import { LogOut, MessageSquare } from "lucide-react";
 
 export default function AdminDashboard() {
   const { user, role, loading, signOut } = useAuth();
@@ -52,40 +48,23 @@ export default function AdminDashboard() {
       </header>
 
       <main className="container mx-auto px-4 py-8">
-        <Tabs defaultValue="products" className="w-full">
-          <TabsList className="grid w-full grid-cols-4">
-            <TabsTrigger value="products">
-              <Package className="mr-2 h-4 w-4" />
-              Products
-            </TabsTrigger>
-            <TabsTrigger value="campaigns">
-              <Megaphone className="mr-2 h-4 w-4" />
-              Campaigns
-            </TabsTrigger>
-            <TabsTrigger value="education">
-              <GraduationCap className="mr-2 h-4 w-4" />
-              Education
-            </TabsTrigger>
-            <TabsTrigger value="gallery">
-              <Images className="mr-2 h-4 w-4" />
-              Gallery
+        <Tabs defaultValue="forum" className="w-full">
+          <TabsList className="grid w-full grid-cols-1">
+            <TabsTrigger value="forum">
+              <MessageSquare className="mr-2 h-4 w-4" />
+              Forum Chat
             </TabsTrigger>
           </TabsList>
 
-          <TabsContent value="products" className="mt-6">
-            <ProductsManager />
-          </TabsContent>
-
-          <TabsContent value="campaigns" className="mt-6">
-            <CampaignsManager />
-          </TabsContent>
-
-          <TabsContent value="education" className="mt-6">
-            <EducationManager />
-          </TabsContent>
-
-          <TabsContent value="gallery" className="mt-6">
-            <GalleryManager />
+          <TabsContent value="forum" className="mt-6">
+            <div className="text-center py-12">
+              <MessageSquare className="w-16 h-16 mx-auto text-muted-foreground mb-4" />
+              <h3 className="text-xl font-semibold mb-2">Forum Chat Management</h3>
+              <p className="text-muted-foreground mb-4">Kelola pesan dan aktivitas forum</p>
+              <Button onClick={() => navigate("/products")}>
+                Buka Forum Chat
+              </Button>
+            </div>
           </TabsContent>
         </Tabs>
       </main>
