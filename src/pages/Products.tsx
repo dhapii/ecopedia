@@ -1,152 +1,44 @@
-import { ArrowLeft, Send, MessageCircle } from "lucide-react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/lib/auth";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Card } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { ArrowLeft, Send, Plus } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
-import { supabase } from "@/integrations/supabase/client";
-import { useToast } from "@/hooks/use-toast";
-import { useState, useEffect, useRef } from "react";
+import { toast } from "sonner";
 
-interface Message {
-  id: string;
-  user_id: string;
-  content: string;
-  created_at: string;
-  user_email?: string;
-}
+// Dummy messages data
+const DUMMY_MESSAGES = [
+  { id: "1", content: "Halo semua! Senang bisa bergabung di forum ini", user_id: "1", user_email: "admin@ecohub.com", created_at: "2024-01-15T10:30:00" },
+  { id: "2", content: "Selamat datang! Mari kita diskusi tentang lingkungan", user_id: "2", user_email: "user@ecohub.com", created_at: "2024-01-15T10:35:00" },
+  { id: "3", content: "Ada yang punya tips untuk mengurangi sampah plastik?", user_id: "2", user_email: "user@ecohub.com", created_at: "2024-01-15T10:40:00" },
+  { id: "4", content: "Gunakan tas belanja yang bisa dipakai ulang dan hindari sedotan plastik", user_id: "1", user_email: "admin@ecohub.com", created_at: "2024-01-15T10:45:00" },
+];
 
-const Products = () => {
+export default function Products() {
   const navigate = useNavigate();
-  const { toast } = useToast();
-  const [messages, setMessages] = useState<Message[]>([]);
+  const { user, role } = useAuth();
+  const [messages, setMessages] = useState(DUMMY_MESSAGES);
   const [newMessage, setNewMessage] = useState("");
-  const [loading, setLoading] = useState(true);
-  const [currentUser, setCurrentUser] = useState<any>(null);
-  const scrollRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    checkUser();
-    fetchMessages();
-    subscribeToMessages();
-  }, []);
-
-  useEffect(() => {
-    scrollToBottom();
-  }, [messages]);
-
-  const checkUser = async () => {
-    const { data: { user } } = await supabase.auth.getUser();
-    setCurrentUser(user);
-  };
-
-  const scrollToBottom = () => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
-    }
-  };
-
-  const fetchMessages = async () => {
-    try {
-      const { data, error } = await supabase
-        .from("messages")
-        .select("*")
-        .order("created_at", { ascending: true });
-
-      if (error) throw error;
-
-      // Fetch user emails for each message
-      const messagesWithUsers = await Promise.all(
-        (data || []).map(async (msg) => {
-          const { data: userData } = await supabase.auth.admin.getUserById(msg.user_id);
-          return {
-            ...msg,
-            user_email: userData?.user?.email || "Unknown User"
-          };
-        })
-      );
-
-      setMessages(messagesWithUsers);
-    } catch (error: any) {
-      console.error("Error fetching messages:", error);
-      toast({
-        title: "Error",
-        description: "Gagal memuat pesan",
-        variant: "destructive",
-      });
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const subscribeToMessages = () => {
-    const channel = supabase
-      .channel("messages-channel")
-      .on(
-        "postgres_changes",
-        {
-          event: "*",
-          schema: "public",
-          table: "messages",
-        },
-        async (payload) => {
-          if (payload.eventType === "INSERT") {
-            const newMsg = payload.new as Message;
-            const { data: userData } = await supabase.auth.admin.getUserById(newMsg.user_id);
-            setMessages((prev) => [
-              ...prev,
-              {
-                ...newMsg,
-                user_email: userData?.user?.email || "Unknown User"
-              }
-            ]);
-          }
-        }
-      )
-      .subscribe();
-
-    return () => {
-      supabase.removeChannel(channel);
-    };
-  };
-
-  const handleSendMessage = async (e: React.FormEvent) => {
+  const handleSendMessage = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    if (!currentUser) {
-      toast({
-        title: "Error",
-        description: "Anda harus login untuk mengirim pesan",
-        variant: "destructive",
-      });
-      return;
-    }
+    if (!newMessage.trim() || !user) return;
 
-    if (!newMessage.trim()) return;
+    const message = {
+      id: String(messages.length + 1),
+      content: newMessage,
+      user_id: user.id,
+      user_email: user.email,
+      created_at: new Date().toISOString(),
+    };
 
-    try {
-      const { error } = await supabase
-        .from("messages")
-        .insert([
-          {
-            user_id: currentUser.id,
-            content: newMessage.trim(),
-          },
-        ]);
-
-      if (error) throw error;
-
-      setNewMessage("");
-    } catch (error: any) {
-      console.error("Error sending message:", error);
-      toast({
-        title: "Error",
-        description: "Gagal mengirim pesan",
-        variant: "destructive",
-      });
-    }
+    setMessages([...messages, message]);
+    setNewMessage("");
+    toast.success("Pesan terkirim");
   };
 
   const getInitials = (email: string) => {
@@ -161,7 +53,7 @@ const Products = () => {
     });
   };
 
-  if (!currentUser) {
+  if (!user) {
     return (
       <div className="min-h-screen bg-background">
         <div className="container mx-auto px-4 py-8">
@@ -200,26 +92,30 @@ const Products = () => {
         </Button>
 
         <SectionHeader
-          icon={MessageCircle}
+          icon={Send}
           title="Forum Chat"
           subtitle="Diskusi dan Berbagi tentang Lingkungan"
           centered
         />
 
         <Card className="mt-8">
-          <div className="p-4 border-b">
-            <h3 className="font-semibold">Chat Room EcoHub</h3>
-            <p className="text-sm text-muted-foreground">
-              {messages.length} pesan
-            </p>
+          <div className="p-4 border-b flex justify-between items-center">
+            <div>
+              <h3 className="font-semibold">Chat Room EcoHub</h3>
+              <p className="text-sm text-muted-foreground">
+                {messages.length} pesan
+              </p>
+            </div>
+            {role === "admin" && (
+              <Button size="sm" variant="outline">
+                <Plus className="h-4 w-4 mr-2" />
+                Moderasi
+              </Button>
+            )}
           </div>
 
-          <ScrollArea className="h-[500px] p-4" ref={scrollRef}>
-            {loading ? (
-              <div className="flex items-center justify-center h-full">
-                <p className="text-muted-foreground">Memuat pesan...</p>
-              </div>
-            ) : messages.length === 0 ? (
+          <ScrollArea className="h-[500px] p-4">
+            {messages.length === 0 ? (
               <div className="flex items-center justify-center h-full">
                 <p className="text-muted-foreground">
                   Belum ada pesan. Mulai percakapan!
@@ -231,7 +127,7 @@ const Products = () => {
                   <div
                     key={message.id}
                     className={`flex gap-3 ${
-                      message.user_id === currentUser?.id
+                      message.user_id === user?.id
                         ? "flex-row-reverse"
                         : ""
                     }`}
@@ -243,7 +139,7 @@ const Products = () => {
                     </Avatar>
                     <div
                       className={`flex flex-col ${
-                        message.user_id === currentUser?.id
+                        message.user_id === user?.id
                           ? "items-end"
                           : "items-start"
                       }`}
@@ -258,7 +154,7 @@ const Products = () => {
                       </div>
                       <div
                         className={`rounded-lg px-4 py-2 max-w-md ${
-                          message.user_id === currentUser?.id
+                          message.user_id === user?.id
                             ? "bg-primary text-primary-foreground"
                             : "bg-muted"
                         }`}
@@ -290,6 +186,4 @@ const Products = () => {
       </div>
     </div>
   );
-};
-
-export default Products;
+}
