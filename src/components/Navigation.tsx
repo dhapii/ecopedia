@@ -9,6 +9,7 @@ const navItems = [
   { name: "Waste Management", href: "#waste" },
   { name: "Green Space", href: "#greenspace" },
   { name: "Gallery", href: "#gallery" },
+  { name: "Forum", href: "#forum" },
 ];
 
 const Navigation = () => {

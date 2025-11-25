@@ -343,7 +343,7 @@ const Index = () => {
       </section>
 
       {/* EcoGallery Section */}
-      <section id="gallery" className="py-20 lg:py-32">
+      <section id="gallery" className="py-20 lg:py-32 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             icon={Camera}
@@ -374,6 +374,50 @@ const Index = () => {
             >
               <Link to="/gallery">
                 Lihat Semua Dokumentasi
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Forum Chat Section */}
+      <section id="forum" className="py-20 lg:py-32">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeader
+            icon={ShoppingBag}
+            title="Forum Chat"
+            subtitle="Diskusi dan Berbagi tentang Lingkungan"
+            centered
+          />
+
+          <div className="max-w-3xl mx-auto text-center">
+            <p className="text-muted-foreground mb-8">
+              Bergabunglah dengan komunitas EcoHub untuk berdiskusi, berbagi pengalaman, 
+              dan saling mendukung dalam perjalanan menuju gaya hidup yang lebih ramah lingkungan.
+            </p>
+            
+            <div className="grid md:grid-cols-3 gap-6 mb-8">
+              <div className="bg-card rounded-xl p-6 border border-border">
+                <Users className="w-8 h-8 text-primary mx-auto mb-3" />
+                <div className="text-2xl font-bold text-foreground mb-1">500+</div>
+                <div className="text-sm text-muted-foreground">Anggota Aktif</div>
+              </div>
+              <div className="bg-card rounded-xl p-6 border border-border">
+                <ShoppingBag className="w-8 h-8 text-primary mx-auto mb-3" />
+                <div className="text-2xl font-bold text-foreground mb-1">1000+</div>
+                <div className="text-sm text-muted-foreground">Pesan Terkirim</div>
+              </div>
+              <div className="bg-card rounded-xl p-6 border border-border">
+                <Heart className="w-8 h-8 text-primary mx-auto mb-3" />
+                <div className="text-2xl font-bold text-foreground mb-1">24/7</div>
+                <div className="text-sm text-muted-foreground">Selalu Online</div>
+              </div>
+            </div>
+
+            <Button asChild size="lg" className="group">
+              <Link to="/products">
+                Buka Forum Chat
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
@@ -430,6 +474,11 @@ const Index = () => {
                 <li>
                   <a href="#gallery" className="hover:text-background">
                     EcoGallery
+                  </a>
+                </li>
+                <li>
+                  <a href="#forum" className="hover:text-background">
+                    Forum Chat
                   </a>
                 </li>
               </ul>
