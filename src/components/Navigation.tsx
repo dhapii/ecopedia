@@ -9,7 +9,6 @@ const navItems = [
   { name: "Waste Management", href: "#waste" },
   { name: "Green Space", href: "#greenspace" },
   { name: "Gallery", href: "#gallery" },
-  { name: "Products", href: "#products" },
 ];
 
 const Navigation = () => {

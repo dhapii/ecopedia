@@ -381,85 +381,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* EcoProducts Section */}
-      <section id="products" className="py-20 lg:py-32 bg-muted/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            icon={ShoppingBag}
-            title="EcoProducts"
-            subtitle="Produk Ramah Lingkungan"
-            centered
-          />
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            <FeatureCard
-              icon={Leaf}
-              title="Produk Eco-Friendly"
-              description="Temukan produk ramah lingkungan dari brand terpercaya"
-              items={[
-                "Produk lokal berkualitas",
-                "Sertifikat eco-label",
-                "Deskripsi manfaat",
-                "Inquiry langsung",
-              ]}
-              gradient="primary"
-            />
-            <FeatureCard
-              icon={Recycle}
-              title="Barang Daur Ulang"
-              description="Produk kreatif dari bahan daur ulang"
-              items={[
-                "Kerajinan unik",
-                "Fashion sustainable",
-                "Furniture upcycle",
-                "DIY materials",
-              ]}
-              gradient="secondary"
-            />
-            <FeatureCard
-              icon={ShoppingBag}
-              title="UMKM Berkelanjutan"
-              description="Dukung usaha lokal yang peduli lingkungan"
-              items={[
-                "Produk organik",
-                "Zero-waste packaging",
-                "Fair trade products",
-                "Supporting local",
-              ]}
-              gradient="earth"
-            />
-          </div>
-
-          <div className="mt-12 text-center">
-            <Button asChild size="lg" variant="outline" className="group">
-              <Link to="/products">
-                Jelajahi Semua Produk
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </Button>
-          </div>
-
-          <div className="mt-12 bg-card rounded-2xl p-8 lg:p-12 border border-border">
-            <div className="text-center max-w-2xl mx-auto">
-              <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-4">
-                Ingin Tampilkan Produk Anda?
-              </h3>
-              <p className="text-muted-foreground mb-6">
-                Bergabunglah dengan marketplace eco-friendly kami dan jangkau
-                konsumen yang peduli lingkungan
-              </p>
-              <Button
-                size="lg"
-                className="bg-gradient-primary hover:opacity-90 text-primary-foreground shadow-medium"
-                asChild
-              >
-                <Link to="/seller-registration">Daftar Sebagai Seller</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Footer */}
       <footer className="bg-foreground text-background py-12 lg:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -509,11 +430,6 @@ const Index = () => {
                 <li>
                   <a href="#gallery" className="hover:text-background">
                     EcoGallery
-                  </a>
-                </li>
-                <li>
-                  <a href="#products" className="hover:text-background">
-                    EcoProducts
                   </a>
                 </li>
               </ul>
