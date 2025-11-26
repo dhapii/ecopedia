@@ -7,6 +7,9 @@ import { useAuth } from "@/lib/auth";
 import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
 
+import hutan2 from "@/assets/hutan-2.png";
+import hutan1 from "@/assets/hutan-1.jpeg";
+
 const Gallery = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
@@ -22,7 +25,7 @@ const Gallery = () => {
       category: "Penghijauan",
       location: "Taman Kota Jakarta",
       date: "15 Jan 2024",
-      image: "/placeholder.svg",
+      image: hutan2,
       photographer: "Budi Santoso",
       likes: 234,
       description: "Kegiatan penanaman pohon massal di Taman Kota Jakarta melibatkan 200 volunteer"
@@ -33,7 +36,7 @@ const Gallery = () => {
       category: "Bersih Pantai",
       location: "Pantai Ancol",
       date: "12 Jan 2024",
-      image: "/placeholder.svg",
+      image: hutan1,
       photographer: "Siti Nurhaliza",
       likes: 189,
       description: "Pembersihan sampah plastik di sepanjang Pantai Ancol mengumpulkan 2 ton sampah"
@@ -44,7 +47,7 @@ const Gallery = () => {
       category: "Daur Ulang",
       location: "Balai RW 05",
       date: "10 Jan 2024",
-      image: "/placeholder.svg",
+      image: hutan2,
       photographer: "Ahmad Wijaya",
       likes: 156,
       description: "Pelatihan membuat kerajinan dari limbah plastik"
@@ -55,7 +58,7 @@ const Gallery = () => {
       category: "Event",
       location: "Jl. Sudirman",
       date: "7 Jan 2024",
-      image: "/placeholder.svg",
+      image: hutan1,
       photographer: "Dewi Lestari",
       likes: 445,
       description: "Ribuan warga menikmati udara bersih di hari bebas kendaraan bermotor"
@@ -66,7 +69,7 @@ const Gallery = () => {
       category: "Before-After",
       location: "Ciliwung, Jakarta",
       date: "5 Jan 2024",
-      image: "/placeholder.svg",
+      image: hutan2,
       photographer: "Hendra Kusuma",
       likes: 312,
       description: "Dokumentasi kondisi Sungai Ciliwung sebelum pembersihan"
@@ -77,7 +80,7 @@ const Gallery = () => {
       category: "Before-After",
       location: "Ciliwung, Jakarta",
       date: "15 Jan 2024",
-      image: "/placeholder.svg",
+      image: hutan1,
       photographer: "Hendra Kusuma",
       likes: 578,
       description: "Hasil pembersihan Sungai Ciliwung setelah program 2 minggu"
@@ -88,7 +91,7 @@ const Gallery = () => {
       category: "Event",
       location: "GBK Senayan",
       date: "3 Jan 2024",
-      image: "/placeholder.svg",
+      image: hutan2,
       photographer: "Maya Putri",
       likes: 892,
       description: "Festival tahunan produk ramah lingkungan dan edukasi"
@@ -99,7 +102,7 @@ const Gallery = () => {
       category: "Penghijauan",
       location: "SD Negeri 01",
       date: "1 Jan 2024",
-      image: "/placeholder.svg",
+      image: hutan1,
       photographer: "Rina Safitri",
       likes: 267,
       description: "Pembuatan taman vertikal di sekolah untuk edukasi siswa"
@@ -110,7 +113,7 @@ const Gallery = () => {
       category: "Daur Ulang",
       location: "Komunitas RT 03",
       date: "28 Des 2023",
-      image: "/placeholder.svg",
+      image: hutan2,
       photographer: "Joko Widodo",
       likes: 198,
       description: "Hasil karya kerajinan ibu-ibu PKK dari botol plastik bekas"

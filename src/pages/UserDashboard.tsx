@@ -226,21 +226,21 @@ export default function UserDashboard() {
                   <div className="text-sm text-muted-foreground">Diskusi dengan komunitas</div>
                 </div>
               </Button>
-              <Button variant="outline" className="h-auto py-4 justify-start" onClick={() => navigate("/#education")}>
+              <Button variant="outline" className="h-auto py-4 justify-start" onClick={() => navigate("/education")}>
                 <GraduationCap className="mr-3 h-5 w-5" />
                 <div className="text-left">
                   <div className="font-semibold">Edukasi Lingkungan</div>
                   <div className="text-sm text-muted-foreground">Pelajari tentang lingkungan</div>
                 </div>
               </Button>
-              <Button variant="outline" className="h-auto py-4 justify-start" onClick={() => navigate("/#campaigns")}>
+              <Button variant="outline" className="h-auto py-4 justify-start" onClick={() => navigate("/campaigns")}>
                 <Megaphone className="mr-3 h-5 w-5" />
                 <div className="text-left">
                   <div className="font-semibold">Kampanye Hijau</div>
                   <div className="text-sm text-muted-foreground">Ikuti kampanye lingkungan</div>
                 </div>
               </Button>
-              <Button variant="outline" className="h-auto py-4 justify-start" onClick={() => navigate("/#gallery")}>
+              <Button variant="outline" className="h-auto py-4 justify-start" onClick={() => navigate("/gallery")}>
                 <Images className="mr-3 h-5 w-5" />
                 <div className="text-left">
                   <div className="font-semibold">Galeri</div>

@@ -7,18 +7,22 @@ import { useAuth } from "@/lib/auth";
 import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
 
+
+import dummy1 from "@/assets/dummy-1.png";
+
 const Education = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
   const [showAddModal, setShowAddModal] = useState(false);
 
   const articles = [
+
     {
       id: 1,
       title: "Mengenal Konsep Zero Waste",
       category: "Daur Ulang",
       description: "Pelajari bagaimana menerapkan gaya hidup zero waste dalam kehidupan sehari-hari untuk mengurangi sampah plastik",
-      image: "/placeholder.svg",
+      image: dummy1,
       author: "Dr. Budi Santoso",
       date: "15 Jan 2024",
       readTime: "5 min"
@@ -28,7 +32,7 @@ const Education = () => {
       title: "Dampak Perubahan Iklim",
       category: "Iklim",
       description: "Memahami dampak perubahan iklim global dan langkah-langkah mitigasi yang dapat dilakukan",
-      image: "/placeholder.svg",
+      image: dummy1,
       author: "Prof. Siti Rahayu",
       date: "12 Jan 2024",
       readTime: "8 min"
@@ -38,7 +42,7 @@ const Education = () => {
       title: "Energi Terbarukan",
       category: "Energi",
       description: "Eksplorasi berbagai jenis energi terbarukan dan implementasinya di Indonesia",
-      image: "/placeholder.svg",
+      image: dummy1,
       author: "Ir. Ahmad Wijaya",
       date: "10 Jan 2024",
       readTime: "6 min"
@@ -48,7 +52,7 @@ const Education = () => {
       title: "Konservasi Air Bersih",
       category: "Air",
       description: "Tips praktis menghemat penggunaan air dan menjaga kualitas sumber air",
-      image: "/placeholder.svg",
+      image: dummy1,
       author: "Dr. Maya Putri",
       date: "8 Jan 2024",
       readTime: "4 min"
@@ -58,7 +62,7 @@ const Education = () => {
       title: "Biodiversitas Indonesia",
       category: "Konservasi",
       description: "Kekayaan keanekaragaman hayati Indonesia dan upaya pelestariannya",
-      image: "/placeholder.svg",
+      image: dummy1,
       author: "Prof. Hendra Kusuma",
       date: "5 Jan 2024",
       readTime: "7 min"
@@ -68,7 +72,7 @@ const Education = () => {
       title: "Pertanian Organik",
       category: "Pertanian",
       description: "Mengenal metode pertanian organik yang ramah lingkungan dan berkelanjutan",
-      image: "/placeholder.svg",
+      image: dummy1,
       author: "Ir. Dewi Lestari",
       date: "3 Jan 2024",
       readTime: "5 min"

@@ -7,6 +7,10 @@ import { useAuth } from "@/lib/auth";
 import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
 
+import hutan2 from "@/assets/hutan-2.png";
+import hutan1 from "@/assets/hutan-1.jpeg";
+import hutan3 from "@/assets/hutan-3.jpg";
+
 const GreenSpace = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
@@ -21,7 +25,7 @@ const GreenSpace = () => {
       trees: 450,
       co2Absorbed: "32.5 ton/tahun",
       status: "Terkelola Baik",
-      image: "/placeholder.svg",
+      image: hutan3,
       lastMaintenance: "15 Jan 2024"
     },
     {
@@ -32,7 +36,7 @@ const GreenSpace = () => {
       trees: 3500,
       co2Absorbed: "252 ton/tahun",
       status: "Terkelola Baik",
-      image: "/placeholder.svg",
+      image: hutan2,
       lastMaintenance: "12 Jan 2024"
     },
     {
@@ -43,7 +47,7 @@ const GreenSpace = () => {
       trees: 890,
       co2Absorbed: "64.1 ton/tahun",
       status: "Terkelola Baik",
-      image: "/placeholder.svg",
+      image: hutan1,
       lastMaintenance: "10 Jan 2024"
     },
     {
@@ -54,7 +58,7 @@ const GreenSpace = () => {
       trees: 230,
       co2Absorbed: "16.6 ton/tahun",
       status: "Perlu Perhatian",
-      image: "/placeholder.svg",
+      image: hutan1,
       lastMaintenance: "5 Jan 2024"
     },
     {
@@ -65,7 +69,7 @@ const GreenSpace = () => {
       trees: 340,
       co2Absorbed: "24.5 ton/tahun",
       status: "Terkelola Baik",
-      image: "/placeholder.svg",
+      image: hutan2,
       lastMaintenance: "8 Jan 2024"
     },
     {
@@ -76,7 +80,7 @@ const GreenSpace = () => {
       trees: 1800,
       co2Absorbed: "129.6 ton/tahun",
       status: "Terkelola Baik",
-      image: "/placeholder.svg",
+      image: hutan3,
       lastMaintenance: "14 Jan 2024"
     }
   ];

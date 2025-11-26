@@ -7,6 +7,8 @@ import { useAuth } from "@/lib/auth";
 import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
 
+import hutan from "@/assets/hutan-1.jpeg";
+
 const Campaigns = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
@@ -17,7 +19,7 @@ const Campaigns = () => {
       id: 1,
       title: "Tanam 1000 Pohon",
       description: "Mari bersama-sama menanam 1000 pohon untuk menghijaukan kota kita",
-      image: "/placeholder.svg",
+      image: hutan,
       location: "Taman Kota Jakarta",
       date: "25 Februari 2024",
       participants: 234,
@@ -29,7 +31,7 @@ const Campaigns = () => {
       id: 2,
       title: "Bersih-Bersih Pantai",
       description: "Aksi bersih-bersih pantai dari sampah plastik dan limbah",
-      image: "/placeholder.svg",
+      image: hutan,
       location: "Pantai Ancol",
       date: "3 Maret 2024",
       participants: 156,
@@ -41,7 +43,7 @@ const Campaigns = () => {
       id: 3,
       title: "Car Free Day",
       description: "Hari bebas kendaraan bermotor untuk mengurangi polusi udara",
-      image: "/placeholder.svg",
+      image: hutan,
       location: "Sudirman - Thamrin",
       date: "Setiap Minggu",
       participants: 1250,
@@ -53,7 +55,7 @@ const Campaigns = () => {
       id: 4,
       title: "Workshop Kompos",
       description: "Belajar membuat kompos dari sampah organik rumah tangga",
-      image: "/placeholder.svg",
+      image: hutan,
       location: "Balai RW 05",
       date: "10 Maret 2024",
       participants: 45,
@@ -65,7 +67,7 @@ const Campaigns = () => {
       id: 5,
       title: "Peduli Sungai Ciliwung",
       description: "Program pembersihan dan revitalisasi Sungai Ciliwung",
-      image: "/placeholder.svg",
+      image: hutan,
       location: "Sepanjang Ciliwung",
       date: "17 Maret 2024",
       participants: 89,
@@ -77,7 +79,7 @@ const Campaigns = () => {
       id: 6,
       title: "Edukasi Sekolah",
       description: "Program edukasi lingkungan hidup di sekolah-sekolah",
-      image: "/placeholder.svg",
+      image: hutan,
       location: "SD Negeri 01",
       date: "20 Maret 2024",
       participants: 120,

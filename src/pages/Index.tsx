@@ -30,6 +30,10 @@ import travelImage from "@/assets/travel-icon.jpg";
 import campagin1 from "@/assets/campaign-1.jpg";
 import Pandu from "@/assets/pandu.jpg";
 import sampah from "@/assets/baksampah.jpg";
+import banksampah from "@/assets/bank-sampah.jpeg";
+import reboisasi from "@/assets/reboisasi.jpeg";
+import hutan1 from "@/assets/hutan-1.jpeg";
+import hutan2 from "@/assets/hutan-2.png";
 
 const Index = () => {
   return (
@@ -64,6 +68,7 @@ const Index = () => {
               icon={Award}
               title="Modul & Quiz"
               description="Belajar interaktif dengan modul terstruktur dan dapatkan sertifikat"
+              image={educationImage}
               items={[
                 "Modul belajar bertingkat",
                 "Quiz interaktif",
@@ -76,6 +81,7 @@ const Index = () => {
               icon={Recycle}
               title="Zero-Waste Lifestyle"
               description="Panduan praktis menerapkan gaya hidup tanpa sampah"
+              image={educationImage}
               items={[
                 "Tips harian zero-waste",
                 "Daur ulang kreatif",
@@ -112,7 +118,7 @@ const Index = () => {
               icon={Heart}
               title="Kampanye Digital"
               description="Ikuti dan dukung kampanye lingkungan yang sedang berjalan"
-              image={campaignImage}
+              image={reboisasi}
               items={[
                 "Poster kampanye gratis",
                 "Konten media sosial",
@@ -203,6 +209,7 @@ const Index = () => {
               icon={MapPin}
               title="Lokasi Drop Point"
               description="Temukan tempat pembuangan dan pengumpulan sampah terdekat"
+              image={banksampah}
               items={[
                 "Peta interaktif",
                 "Filter kategori",
@@ -268,56 +275,6 @@ const Index = () => {
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
-          </div>
-
-          <div className="mt-16 mb-14 grid grid-cols-2 md:grid-cols-4 gap-6 text-center backdrop-blur-sm bg-blue-50 p-6 rounded-lg shadow-md">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="text-4xl font-bold text-primary">
-                <CountUp end={181} duration={4} />
-              </div>
-              <div className="text-muted-foreground">Siswa</div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <div className="text-4xl font-bold text-primary">
-                <CountUp end={10} duration={4} />
-              </div>
-              <div className="text-muted-foreground">Guru</div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <div className="text-4xl font-bold text-primary">
-                <CountUp end={2461} duration={4.5} />
-              </div>
-              <div className="text-muted-foreground">Alumni</div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-            >
-              <div className="text-4xl font-bold text-primary">
-                <CountUp end={30} duration={4} />
-              </div>
-              <div className="text-muted-foreground">Prestasi</div>
-            </motion.div>
           </div>
 
           <div className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-6">
