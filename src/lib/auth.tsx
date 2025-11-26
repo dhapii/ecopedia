@@ -5,6 +5,8 @@ type Role = "admin" | "user" | null;
 interface User {
   id: string;
   email: string;
+  username: string;
+  avatar: string;
 }
 
 interface AuthContextType {
@@ -14,14 +16,29 @@ interface AuthContextType {
   signIn: (email: string, password: string) => Promise<{ error: any }>;
   signUp: (email: string, password: string) => Promise<{ error: any }>;
   signOut: () => Promise<void>;
+  updateProfile: (username: string, avatar: string) => void;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 // Dummy users stored locally
 const USERS = [
-  { id: "1", email: "admin@ecohub.com", password: "admin123", role: "admin" as Role },
-  { id: "2", email: "user@ecohub.com", password: "user123", role: "user" as Role },
+  { 
+    id: "1", 
+    email: "admin@ecohub.com", 
+    password: "admin123", 
+    role: "admin" as Role,
+    username: "Admin EcoHub",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=admin"
+  },
+  { 
+    id: "2", 
+    email: "user@ecohub.com", 
+    password: "user123", 
+    role: "user" as Role,
+    username: "User EcoHub",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=user"
+  },
 ];
 
 export function AuthProvider({ children }: { children: ReactNode }) {
@@ -32,7 +49,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const signIn = async (email: string, password: string) => {
     const foundUser = USERS.find((u) => u.email === email && u.password === password);
     if (foundUser) {
-      setUser({ id: foundUser.id, email: foundUser.email });
+      setUser({ 
+        id: foundUser.id, 
+        email: foundUser.email,
+        username: foundUser.username,
+        avatar: foundUser.avatar
+      });
       setRole(foundUser.role);
       return { error: null };
     } else {
@@ -47,11 +69,30 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       email,
       password,
       role: "user" as Role,
+      username: `User ${USERS.length + 1}`,
+      avatar: `https://api.dicebear.com/7.x/avataaars/svg?seed=${USERS.length + 1}`
     };
     USERS.push(newUser);
-    setUser({ id: newUser.id, email: newUser.email });
+    setUser({ 
+      id: newUser.id, 
+      email: newUser.email,
+      username: newUser.username,
+      avatar: newUser.avatar
+    });
     setRole(newUser.role);
     return { error: null };
+  };
+
+  const updateProfile = (username: string, avatar: string) => {
+    if (user) {
+      setUser({ ...user, username, avatar });
+      // Update in USERS array
+      const userIndex = USERS.findIndex(u => u.id === user.id);
+      if (userIndex !== -1) {
+        USERS[userIndex].username = username;
+        USERS[userIndex].avatar = avatar;
+      }
+    }
   };
 
   const signOut = async () => {
@@ -60,7 +101,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, role, loading, signIn, signUp, signOut }}>
+    <AuthContext.Provider value={{ user, role, loading, signIn, signUp, signOut, updateProfile }}>
       {children}
     </AuthContext.Provider>
   );
