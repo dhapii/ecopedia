@@ -10,6 +10,12 @@ import { useState } from "react";
 import hutan2 from "@/assets/hutan-2.png";
 import hutan1 from "@/assets/hutan-1.jpeg";
 import hutan3 from "@/assets/hutan-3.jpg";
+import suropati from "@/assets/suropati.jpg";
+import ujung from  "@/assets/ujung.jpg";
+import kambas from "@/assets/kambas.jpg";
+import tanjung from "@/assets/tanjung.jpeg";
+import srengseng from "@/assets/srengseng.jpg";
+import menteng from "@/assets/menteng.jpg";
 
 const GreenSpace = () => {
   const navigate = useNavigate();
@@ -25,7 +31,7 @@ const GreenSpace = () => {
       trees: 450,
       co2Absorbed: "32.5 ton/tahun",
       status: "Terkelola Baik",
-      image: hutan3,
+      image: suropati,
       lastMaintenance: "15 Jan 2024"
     },
     {
@@ -36,7 +42,7 @@ const GreenSpace = () => {
       trees: 3500,
       co2Absorbed: "252 ton/tahun",
       status: "Terkelola Baik",
-      image: hutan2,
+      image: srengseng,
       lastMaintenance: "12 Jan 2024"
     },
     {
@@ -47,40 +53,40 @@ const GreenSpace = () => {
       trees: 890,
       co2Absorbed: "64.1 ton/tahun",
       status: "Terkelola Baik",
-      image: hutan1,
+      image: menteng,
       lastMaintenance: "10 Jan 2024"
     },
     {
       id: 4,
-      name: "Taman Cattleya",
-      location: "Tomang, Jakarta Barat",
+      name: "Taman Nasional Tanjung Puting",
+      location: "Teluk Pulai, Kumai",
       area: "7,800 m²",
       trees: 230,
       co2Absorbed: "16.6 ton/tahun",
       status: "Perlu Perhatian",
-      image: hutan1,
+      image: tanjung,
       lastMaintenance: "5 Jan 2024"
     },
     {
       id: 5,
-      name: "Taman Langsat",
-      location: "Kebayoran Baru, Jakarta Selatan",
+      name: "Taman Nasional Way Kambas",
+      location: "Lampung Timur, Provinsi Lampung",
       area: "12,500 m²",
       trees: 340,
       co2Absorbed: "24.5 ton/tahun",
       status: "Terkelola Baik",
-      image: hutan2,
+      image: kambas,
       lastMaintenance: "8 Jan 2024"
     },
     {
       id: 6,
-      name: "Hutan Kota Plataran",
-      location: "Senen, Jakarta Pusat",
+      name: "Taman Nasional Ujung Kulon",
+      location: "Ujung Barat Pulau Jawa",
       area: "8 ha",
       trees: 1800,
       co2Absorbed: "129.6 ton/tahun",
       status: "Terkelola Baik",
-      image: hutan3,
+      image: ujung,
       lastMaintenance: "14 Jan 2024"
     }
   ];

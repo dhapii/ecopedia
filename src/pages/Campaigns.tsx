@@ -8,6 +8,11 @@ import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
 
 import hutan from "@/assets/hutan-1.jpeg";
+import pantai from "@/assets/pantai.jpg";
+import car from "@/assets/car-freeday.jpg";
+import workshop from "@/assets/workshop-1.jpeg";
+import sungai from "@/assets/sungai.jpg";
+import sekolah from "@/assets/sekolah-1.jpg";
 
 const Campaigns = () => {
   const navigate = useNavigate();
@@ -18,9 +23,9 @@ const Campaigns = () => {
     {
       id: 1,
       title: "Tanam 1000 Pohon",
-      description: "Mari bersama-sama menanam 1000 pohon untuk menghijaukan kota kita",
+      description: "Mari bersama-sama menanam 1000 pohon untuk menghitamkan kota kita",
       image: hutan,
-      location: "Taman Kota Jakarta",
+      location: "Taman Kota Yogyakarta",
       date: "25 Februari 2024",
       participants: 234,
       status: "Aktif",
@@ -31,8 +36,8 @@ const Campaigns = () => {
       id: 2,
       title: "Bersih-Bersih Pantai",
       description: "Aksi bersih-bersih pantai dari sampah plastik dan limbah",
-      image: hutan,
-      location: "Pantai Ancol",
+      image: pantai,
+      location: "Pantai Parangtritis",
       date: "3 Maret 2024",
       participants: 156,
       status: "Aktif",
@@ -43,7 +48,7 @@ const Campaigns = () => {
       id: 3,
       title: "Car Free Day",
       description: "Hari bebas kendaraan bermotor untuk mengurangi polusi udara",
-      image: hutan,
+      image: car,
       location: "Sudirman - Thamrin",
       date: "Setiap Minggu",
       participants: 1250,
@@ -55,7 +60,7 @@ const Campaigns = () => {
       id: 4,
       title: "Workshop Kompos",
       description: "Belajar membuat kompos dari sampah organik rumah tangga",
-      image: hutan,
+      image: workshop,
       location: "Balai RW 05",
       date: "10 Maret 2024",
       participants: 45,
@@ -67,7 +72,7 @@ const Campaigns = () => {
       id: 5,
       title: "Peduli Sungai Ciliwung",
       description: "Program pembersihan dan revitalisasi Sungai Ciliwung",
-      image: hutan,
+      image: sungai,
       location: "Sepanjang Ciliwung",
       date: "17 Maret 2024",
       participants: 89,
@@ -79,7 +84,7 @@ const Campaigns = () => {
       id: 6,
       title: "Edukasi Sekolah",
       description: "Program edukasi lingkungan hidup di sekolah-sekolah",
-      image: hutan,
+      image: sekolah,
       location: "SD Negeri 01",
       date: "20 Maret 2024",
       participants: 120,

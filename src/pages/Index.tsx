@@ -34,6 +34,13 @@ import banksampah from "@/assets/bank-sampah.jpeg";
 import reboisasi from "@/assets/reboisasi.jpeg";
 import hutan1 from "@/assets/hutan-1.jpeg";
 import hutan2 from "@/assets/hutan-2.png";
+import suropati from "@/assets/suropati.jpg";
+import ujung from  "@/assets/ujung.jpg";
+import kambas from "@/assets/kambas.jpg";
+import tanjung from "@/assets/tanjung.jpeg";
+import srengseng from "@/assets/srengseng.jpg";
+import menteng from "@/assets/menteng.jpg";
+import hutan3 from "@/assets/hutan-angga.jpg";
 
 const Index = () => {
   return (
@@ -118,7 +125,7 @@ const Index = () => {
               icon={Heart}
               title="Kampanye Digital"
               description="Ikuti dan dukung kampanye lingkungan yang sedang berjalan"
-              image={reboisasi}
+              image={hutan3}
               items={[
                 "Poster kampanye gratis",
                 "Konten media sosial",
@@ -268,15 +275,6 @@ const Index = () => {
             />
           </div>
 
-          <div className="mt-12 text-center">
-            <Button asChild size="lg" variant="outline" className="group">
-              <Link to="/green-space">
-                Lihat Program Penghijauan
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </Button>
-          </div>
-
           <div className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { number: "15K+", label: "Pohon Ditanam", icon: TreePine },
@@ -296,47 +294,71 @@ const Index = () => {
               </div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* EcoGallery Section */}
-      <section id="gallery" className="py-20 lg:py-32 bg-muted/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            icon={Camera}
-            title="EcoGallery"
-            subtitle="Galeri Dokumentasi"
-            centered
-          />
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
-              <div
-                key={item}
-                className="aspect-square bg-gradient-primary rounded-xl overflow-hidden group cursor-pointer"
-              >
-                <div className="w-full h-full bg-muted/30 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-                  <Camera className="w-12 h-12 text-muted-foreground/30" />
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="border-2 border-primary text-primary hover:bg-primary/10 group"
-            >
-              <Link to="/gallery">
-                Lihat Semua Dokumentasi
+          <div className="mt-12 text-center">
+            <Button asChild size="lg" variant="outline" className="group">
+              <Link to="/green-space">
+                Lihat Program Penghijauan
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
           </div>
+          
         </div>
       </section>
+
+{/* EcoGallery Section */}
+<section id="gallery" className="py-20 lg:py-32 bg-muted/30">
+  <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <SectionHeader
+      icon={Camera}
+      title="EcoGallery"
+      subtitle="Galeri Dokumentasi"
+      centered
+    />
+
+    {/* Responsive Image Grid */}
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-10">
+
+      {[
+        srengseng,
+        menteng,
+        ujung,
+        suropati,
+        kambas,
+        tanjung,
+        hutan1,
+        hutan2,
+      ].map((src, index) => (
+        <div
+          key={index}
+          className="relative w-full h-40 sm:h-48 md:h-56 lg:h-60 rounded-xl overflow-hidden shadow group"
+        >
+          <img
+            src={src}
+            alt={`eco-gallery-${index}`}
+            className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+      ))}
+    </div>
+
+    <div className="text-center mt-12">
+      <Button
+        asChild
+        size="lg"
+        variant="outline"
+        className="border-2 border-primary text-primary hover:bg-primary/10 group"
+      >
+        <Link to="/gallery">
+          Lihat Semua Dokumentasi
+          <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+        </Link>
+      </Button>
+    </div>
+  </div>
+</section>
+
 
       {/* Forum Chat Section */}
       <section id="forum" className="py-20 lg:py-32">
@@ -390,8 +412,8 @@ const Index = () => {
               <div className="flex items-center gap-2 mb-4">
                 <div className="bg-gradient-primary rounded-full p-2">
                   <Leaf className="w-5 h-5 text-primary-foreground" />
-                </div>
-                <span className="text-xl font-bold">EcoHub</span>
+                </div> 
+                <span className="text-xl font-bold">EcoPedia</span>
               </div>
               <p className="text-background/70 text-sm">
                 Portal lingkungan terpadu untuk edukasi, kampanye, dan aksi
@@ -444,15 +466,15 @@ const Index = () => {
             <div>
               <h4 className="font-semibold mb-4">Kontak</h4>
               <ul className="space-y-2 text-sm text-background/70">
-                <li>Email: info@ecohub.id</li>
-                <li>Phone: +62 812-3456-7890</li>
-                <li>Jakarta, Indonesia</li>
+                <li>Email: Echopedia@gmail.com</li>
+                <li>Phone: +62 859-4380-4923</li>
+                <li>Yogyakarta, Indonesia</li>
               </ul>
             </div>
           </div>
 
           <div className="border-t border-background/20 pt-8 text-center text-sm text-background/70">
-            <p>© 2025 EcoHub. All rights reserved. Built with 💚 for Earth.</p>
+            <p>© 2025 EcoPedia. All rights reserved. Built with 💚 for Earth.</p>
           </div>
         </div>
       </footer>
