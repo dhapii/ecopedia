@@ -85,7 +85,7 @@ export default function Auth() {
                     <Input
                       id="email-login"
                       type="email"
-                      placeholder="admin@ecohub.com"
+                      placeholder="admin@ecopedia.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required
@@ -107,10 +107,10 @@ export default function Auth() {
                   </Button>
                   <div className="text-sm text-muted-foreground space-y-1 mt-4">
                     <p><strong>Test Akun Admin:</strong></p>
-                    <p>Email: admin@ecohub.com</p>
+                    <p>Email: admin@ecopedia.com</p>
                     <p>Password: admin123</p>
                     <p className="mt-2"><strong>Test Akun User:</strong></p>
-                    <p>Email: user@ecohub.com</p>
+                    <p>Email: user@ecopedia.com</p>
                     <p>Password: user123</p>
                   </div>
                 </form>

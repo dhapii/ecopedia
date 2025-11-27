@@ -25,18 +25,18 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 const USERS = [
   { 
     id: "1", 
-    email: "admin@ecohub.com", 
+    email: "admin@ecopedia.com", 
     password: "admin123", 
     role: "admin" as Role,
-    username: "Admin EcoHub",
+    username: "Admin EcoPedia",
     avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=admin"
   },
   { 
     id: "2", 
-    email: "user@ecohub.com", 
+    email: "user@ecopedia.com", 
     password: "user123", 
     role: "user" as Role,
-    username: "User EcoHub",
+    username: "User EcoPedia",
     avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=user"
   },
 ];
